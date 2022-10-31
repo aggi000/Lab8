@@ -65,6 +65,32 @@ public class CustomList extends ArrayAdapter<City> {
     public void addCity(City city){
         cities.add(city);
     }
+    public Boolean hasCity(City city){
+        for(City c: cities){
+            if(c.getCityName() == city.getCityName() && c.getProvinceName() == city.getProvinceName()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void deleteCity(City city){
+        City toDelete = new City("Ed","ab");
+        for(City c: cities){
+            if(c.getCityName() == city.getCityName() && c.getProvinceName() == city.getProvinceName()){
+                toDelete = c;
+            }
+        }
+        cities.remove(toDelete);
+    }
+
+    public int countCities(){
+        int count = 0;
+        for(City c: cities){
+            count += 1;
+        }
+        return count;
+    }
 
 
 }
